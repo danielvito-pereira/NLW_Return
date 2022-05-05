@@ -1,0 +1,18 @@
+.hero {
+ 
+  margin-top: calc(4.1rem + var(--nav-height));
+
+}
+
+.hero::before{/*significa que antes do conteudo do hero*/
+  content: "";
+  width:100vw;
+  height:calc(108rem + var(--nav-height));
+  background-color:var(--brand-light);
+  display: block;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}

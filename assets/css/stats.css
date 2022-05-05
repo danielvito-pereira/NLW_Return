@@ -1,0 +1,39 @@
+.stats {
+  width: 32.7rem;
+
+  padding-block: 4rem;
+  margin-inline:auto ;
+
+  background-color: var(--brand-baige);
+  border: 1px solid var(--brand-light);
+  border-radius:1.6rem;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
+  gap:6rem;
+
+  padding-top: 4rem;
+}
+.stat h3 {
+  font-size:4.8rem;
+  color: var(--headline);
+  line-height: 130%;
+
+ 
+
+}
+.stat p {
+  margin:0;
+  color: var(--primary-color);
+  font-size:1.6rem;
+  line-height:150%;
+}
+
+.hero img {
+  width: 26.4rem;
+  display:block;
+  margin-inline: auto;
+  object-position: 0 2rem;
+}
