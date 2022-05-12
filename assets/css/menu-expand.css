@@ -1,0 +1,94 @@
+body.menu-expanded {
+  overflow: hidden;
+}
+body.menu-expanded > :not(nav) {/*faz com que todos exeto o nav sumam*/
+  display:none;
+
+}
+.menu,
+.close-menu,
+.open-menu{
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.menu-expanded .menu,/*quando o body esta classe estiver ativa vai mostrar o menu */
+body.menu-expanded .close-menu{
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+body.menu-expanded .menu{
+  position:fixed;
+  top:0;
+  left:0;
+  background-color: var(--primary-color);
+
+  width:100vw;
+  height:100vh;
+
+  padding-top: var(--nav-height);
+}
+
+body.menu-expanded .menu nav{
+  position: relative;
+}
+
+.menu ul:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem;
+
+    margin-top: 6rem;
+
+    font-weight: 700;
+    font-size:2.4rem;
+    line-height:3.1rem;
+}
+
+.menu ul li a {
+  color:white;
+  text-decoration: none;
+}
+
+.menu .button{
+  background: hsl(0, 0%, 100%);
+  border-radius: 4rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color:var(--primary-color);
+
+  display: inline-block;
+  padding: 16px 32px;
+
+  margin-top: 4.8rem;
+  margin-bottom: 8rem;
+}
+
+.social-links{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:3.2rem;
+}
+
+body.menu-expanded .logo,
+body.menu-expanded button {
+  position: relative;/*foi colocado nesse position para liberear a opção z-index*/
+  z-index: 100;
+
+}
+
+body.menu-expanded .logo path {
+  fill: white;
+}
+
+body.menu-expanded button path {
+  stroke:white;
+}

@@ -4,6 +4,4 @@ function onScroll() {
   } else {
     navigation.classList.remove("scroll");
   }
-
-
-}
+} 
