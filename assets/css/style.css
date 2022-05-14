@@ -7,12 +7,16 @@
   --brand-beige: hsl(39, 100%, 97%);
   --brand-light: hsl(148, 23%, 89%);
 
+  --bg-light: hsl(180, 14%, 97%);
+
   font-size: 62.5%; /* 1rem = 10px */
 
   --nav-height: 7.2rem;
 }
 
-
+section{
+  padding-block: 10rem;
+}
 .wrapper {
   width: 37.5rem;
   margin-inline:auto;

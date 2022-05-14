@@ -4,9 +4,11 @@ nav {
 
   position: fixed;
   top: 0;
-  left: 50%;/*joga o elemento para o meio da tela mas não fica exatamente no meio */
+  /*
+  left: 50%;joga o elemento para o meio da tela mas não fica exatamente no meio 
   transform: translateX(-50%);/*ele corrige o elemento no eixo x para ficar no meio */
-  
+  z-index: 100;
+  width: 100vw;
 }
 .wrapper {
   width: 37.5rem;
@@ -21,9 +23,7 @@ nav .wrapper {
 }
 nav.scroll {
   background: var(--primary-color);
-  width: 100vw;
-  position: fixed;
-  top: 0;
+  
 }
 
 nav.scroll svg:nth-child(1) path {

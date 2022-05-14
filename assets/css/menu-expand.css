@@ -2,12 +2,12 @@ body.menu-expanded {
   overflow: hidden;
 }
 body.menu-expanded > :not(nav) {/*faz com que todos exeto o nav sumam*/
-  display:none;
+  visibility: hidden;/*esconde a visibilidade */
 
 }
 .menu,
 .close-menu,
-.open-menu{
+body.menu-expanded .open-menu{
   opacity: 0;
   visibility: hidden;
 }
@@ -18,7 +18,9 @@ body.menu-expanded .close-menu{
   visibility: visible;
 }
 
-
+.menu {
+  transform: translateY(100%);
+}
 
 body.menu-expanded .menu{
   position:fixed;
@@ -30,6 +32,11 @@ body.menu-expanded .menu{
   height:100vh;
 
   padding-top: var(--nav-height);
+
+  transition: transform 300ms;
+
+  
+  transform: translateY(0);
 }
 
 body.menu-expanded .menu nav{

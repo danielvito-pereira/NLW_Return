@@ -1,0 +1,20 @@
+#services .cards{
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+#services .card{
+  padding: 2.4rem;
+  text-align: left;
+
+  background: white;
+
+
+  border: 1px solid var(--brand-light);
+  border-radius: 0.6rem;
+}
+
+#services .card h3 {
+  margin-block: 1.6rem;
+}

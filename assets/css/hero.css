@@ -1,5 +1,5 @@
 .hero {
-  margin-top: calc(4.1rem + var(--nav-height));
+  padding-top: calc(4.1rem + var(--nav-height));
 }
 
 .hero::before{/*significa que antes do conteudo do hero*/
@@ -16,16 +16,10 @@
 }
 
 
-.hero h4 {
-  font-size: 1.4rem;
-  color: var(--primary-color);
-  margin-bottom: 1.6rem;
-}
+
 
 .hero h1 {
-  font-size: 3.4rem;
-  color: var(--headline);
-  line-height: 130%;
+
 
   margin-bottom: 2.4rem;
 }
