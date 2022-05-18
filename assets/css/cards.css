@@ -18,3 +18,7 @@
 #services .card h3 {
   margin-block: 1.6rem;
 }
+
+#services .card circle {
+  fill: var(--brand-light);
+}

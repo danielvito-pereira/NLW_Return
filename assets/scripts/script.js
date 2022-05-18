@@ -1,14 +1,25 @@
+window.addEventListener('scroll', onScroll);// adiciona o evento no body para evitar erro de referencia 
+onScroll()//executa a função logo após ela for adicionada 
 function onScroll() {
+  showNavOnScroll()
+  showBackToTopButtonOnScroll()
+}
+
+function showNavOnScroll() {
   if (scrollY > 0) {
     navigation.classList.add("scroll");
   } else {
     navigation.classList.remove("scroll");
   }
-
-
 }
 
-
+function showBackToTopButtonOnScroll() {
+  if (scrollY > 300) {
+    backToTopButton.classList.add("show");
+  } else {
+    backToTopButton.classList.remove("show");
+  }
+}
 
 function openMenu () {
   document.body.classList.add("menu-expanded");

@@ -78,11 +78,9 @@ body.menu-expanded .menu nav{
   margin-bottom: 8rem;
 }
 
-.social-links{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap:3.2rem;
+.menu .button:hover{
+  color:white;
+  filter: brightness(1.1);/*altera o brilho*/
 }
 
 body.menu-expanded .logo,
