@@ -23,7 +23,7 @@ body.menu-expanded .close-menu{
 }
 
 body.menu-expanded .menu{
-  position:fixed;
+
   top:0;
   left:0;
   background-color: var(--primary-color);
@@ -96,4 +96,9 @@ body.menu-expanded .logo path {
 
 body.menu-expanded button path {
   stroke:white;
+}
+
+nav .menu,
+nav .close-menu{
+  position:fixed;
 }
