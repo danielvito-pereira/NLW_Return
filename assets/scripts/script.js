@@ -1,8 +1,18 @@
 window.addEventListener('scroll', onScroll);// adiciona o evento no body para evitar erro de referencia 
 onScroll()//executa a função logo após ela for adicionada 
+
+
+
+
 function onScroll() {
   showNavOnScroll()
   showBackToTopButtonOnScroll()
+  activateMenuAtCurrentSection()
+}
+
+function activateMenuAtCurrentSection(){
+ const targetLine= scrollY + innerHeight / 2;
+
 }
 
 function showNavOnScroll() {

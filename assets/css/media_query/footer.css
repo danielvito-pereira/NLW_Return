@@ -1,0 +1,22 @@
+@media (min-width:1024px) {
+  footer {
+    padding-block: 8rem;
+  }
+  footer .wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'A B';
+  }
+
+  footer p {
+    margin-bottom:0;
+  }
+
+  footer .col-a{
+    align-self: center;
+  }
+
+  footer .col-b{
+    align-self: center;
+    justify-self: flex-end;
+  }
+}

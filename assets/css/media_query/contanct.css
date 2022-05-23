@@ -1,0 +1,13 @@
+@media (min-width:1024px) {
+  #contanct .wrapper {
+    grid-template-columns: 1fr 57.5rem;
+    grid-template-areas: 'A B';
+  }
+
+  #contanct .h2 {
+    width: 40.4rem;
+  }
+  #contanct img {
+    width: 52rem;
+}
+}
