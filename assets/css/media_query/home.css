@@ -1,6 +1,6 @@
 @media (min-width:1024px) {
     #home::before {
-        height:calc(98% - var(--nav-height));/*recua a parte de baixo */
+        height:calc(90% - var(--nav-height));/*recua a parte de baixo */
     }
     #home {
         padding-top:var(--nav-height); 

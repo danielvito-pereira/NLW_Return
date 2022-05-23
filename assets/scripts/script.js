@@ -7,11 +7,53 @@ onScroll()//executa a função logo após ela for adicionada
 function onScroll() {
   showNavOnScroll()
   showBackToTopButtonOnScroll()
-  activateMenuAtCurrentSection()
+  activateMenuAtCurrentSection(home)
+  activateMenuAtCurrentSection(services)
+  activateMenuAtCurrentSection(about)
+  activateMenuAtCurrentSection(contact)
 }
 
-function activateMenuAtCurrentSection(){
+function activateMenuAtCurrentSection(section){
+  //linha alvo
  const targetLine= scrollY + innerHeight / 2;
+ 
+
+ // Verificar se a seção passou da linha 
+ // quais dados vou precisar ?
+ 
+ //topo da seção
+ const sectionTop = section.offsetTop
+
+ //a altura da seção
+ const sectionHeight = section.offsetHeight;
+
+
+// Verificar se se o topo da seção chegou ou ultrapassou a linha alvo 
+const sectionTopReachOrPassedTargetline = targetLine >= sectionTop
+
+
+// verifica se a base está abaixo da linha alvo
+// quais dados vou precisar?
+
+// a seção termina onde 
+const sectionEndsAt = sectionTop + sectionHeight
+
+// o final da seção passou da linha alvo
+const sectionEndPassedTargetline = sectionEndsAt <= targetLine
+
+// limites da seção 
+const sectionBoundaries =sectionTopReachOrPassedTargetline && !sectionEndPassedTargetline
+const sectionId = section.getAttribute('id')/*vai pegar o atributo da seção por exemplo a home  */
+const menuElement = document.querySelector(`.menu a[href*=${sectionId}]`)
+
+
+
+
+
+menuElement.classList.remove('active')
+if (sectionBoundaries) {
+  menuElement.classList.add('active')
+}
 
 }
 
