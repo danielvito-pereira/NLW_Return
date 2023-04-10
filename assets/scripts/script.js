@@ -1,77 +1,59 @@
+"use strict"
 window.addEventListener('scroll', onScroll);// adiciona o evento no body para evitar erro de referencia 
 onScroll()//executa a função logo após ela for adicionada 
 
 
 
+// Adiciona um listener para o evento de scroll na janela
+window.addEventListener('scroll', onScroll)
 
+// Função que é chamada quando há um evento de scroll na janela
 function onScroll() {
-  showNavOnScroll()
   showBackToTopButtonOnScroll()
-  activateMenuAtCurrentSection(home)
-  activateMenuAtCurrentSection(services)
-  activateMenuAtCurrentSection(about)
-  activateMenuAtCurrentSection(contact)
+  activateMenuAtCurrentSection('home')
+  activateMenuAtCurrentSection('services')
+  activateMenuAtCurrentSection('about')
+ /* activateMenuAtCurrentSection('contact')*/
 }
 
-function activateMenuAtCurrentSection(section){
-  //linha alvo
- const targetLine= scrollY + innerHeight / 2;
- 
-
- // Verificar se a seção passou da linha 
- // quais dados vou precisar ?
- 
- //topo da seção
- const sectionTop = section.offsetTop
-
- //a altura da seção
- const sectionHeight = section.offsetHeight;
-
-
-// Verificar se se o topo da seção chegou ou ultrapassou a linha alvo 
-const sectionTopReachOrPassedTargetline = targetLine >= sectionTop
-
-
-// verifica se a base está abaixo da linha alvo
-// quais dados vou precisar?
-
-// a seção termina onde 
-const sectionEndsAt = sectionTop + sectionHeight
-
-// o final da seção passou da linha alvo
-const sectionEndPassedTargetline = sectionEndsAt <= targetLine
-
-// limites da seção 
-const sectionBoundaries =sectionTopReachOrPassedTargetline && !sectionEndPassedTargetline
-const sectionId = section.getAttribute('id')/*vai pegar o atributo da seção por exemplo a home  */
-const menuElement = document.querySelector(`.menu a[href*=${sectionId}]`)
-
-
-
-
-
-menuElement.classList.remove('active')
-if (sectionBoundaries) {
-  menuElement.classList.add('active')
-}
-
-}
-
-function showNavOnScroll() {
-  if (scrollY > 0) {
-    navigation.classList.add("scroll");
+// Função que ativa o item de menu correspondente à seção atual
+function activateMenuAtCurrentSection(sectionId){
+  // Obtém a seção correspondente ao ID
+  const section = document.getElementById(sectionId)
+  
+  // Obtém a posição da linha alvo (metade da altura da janela)
+  const targetLine = window.scrollY + window.innerHeight / 2
+  
+  // Verifica se a seção atual passou da linha alvo
+  const sectionTop = section.offsetTop
+  const sectionHeight = section.offsetHeight
+  const sectionBottom = sectionTop + sectionHeight
+  const sectionIsVisible = (sectionTop <= targetLine) && (sectionBottom > targetLine)
+  
+  // Atualiza a classe do item de menu correspondente
+  const menuLink = document.querySelector(`.menu a[href="#${sectionId}"]`)
+  if (sectionIsVisible) {
+    menuLink.classList.add('active')
   } else {
-    navigation.classList.remove("scroll");
+    menuLink.classList.remove('active')
   }
 }
 
+// Função que mostra o botão de voltar ao topo quando o usuário rola para baixo
 function showBackToTopButtonOnScroll() {
-  if (scrollY > 300) {
-    backToTopButton.classList.add("show");
-  } else {
-    backToTopButton.classList.remove("show");
+  // Seleciona o botão de voltar ao topo
+  const backToTopButton = document.querySelector("#backToTopButton");
+
+  // Verifica se o botão existe antes de prosseguir
+  if (!backToTopButton) {
+    return;
   }
+
+  // Adiciona ou remove a classe "show" do botão com base na posição de rolagem
+  scrollY > 300 ? backToTopButton.classList.add("show") : backToTopButton.classList.remove("show");
+
 }
+
 
 function openMenu () {
   document.body.classList.add("menu-expanded");
@@ -80,12 +62,8 @@ function openMenu () {
 function closeMenu () {
   document.body.classList.remove("menu-expanded");
 }
-
-ScrollReveal({
-  origin:'top',
-  distance:'30px',
-  duration:700,
-}).reveal(`
+/*lib */
+  ScrollReveal().reveal(`
   #home,
   #home img,
   #home .stats,
@@ -94,4 +72,12 @@ ScrollReveal({
   #services .card,
   #about,
   #about header,
-  #about .content`);
+  #about .content`, {
+    delay: 100,
+    duration: 800,
+    distance: '50px',
+    easing: 'ease-in-out',
+    interval: 150,
+    origin: 'bottom',
+    reset: false
+});
